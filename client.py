@@ -32,10 +32,10 @@ def get_report(files, url):
     print "trying %s" % files
     tfile = tempfile.mkstemp(prefix=main_report, suffix=".pdf")[1]
     filename = os.path.splitext(main_report)[0]
-    xpath = open("%s.xpath" % filename).read().strip()
+    #xpath = open("%s.xpath" % filename).read().strip()
 
     print "writing to: %s" % tfile
-    execcommand = command % (xpath, cachefile, filename, url, tfile)
+    execcommand = command % ("/log/data", cachefile, filename, url, tfile)
     os.system(execcommand)
 
     #os.system("open %s" % tfile)

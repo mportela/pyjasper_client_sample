@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.0.1.final using JasperReports Library version 6.0.0  -->
-<!-- 2015-11-16T11:43:27 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="18" bottomMargin="18" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+<!-- 2015-11-16T19:05:05 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rdo-construtora" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="18" bottomMargin="18" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="xml_local"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
@@ -59,28 +59,34 @@
 		</queryString>
 	</subDataset>
 	<queryString language="xPath">
-		<![CDATA[/log/data/activity]]>
+		<![CDATA[/log/data]]>
 	</queryString>
 	<field name="created_date" class="java.lang.String">
-		<fieldDescription><![CDATA[../created_date]]></fieldDescription>
+		<fieldDescription><![CDATA[created_date]]></fieldDescription>
 	</field>
 	<field name="date" class="java.lang.String">
-		<fieldDescription><![CDATA[../date]]></fieldDescription>
+		<fieldDescription><![CDATA[date]]></fieldDescription>
 	</field>
 	<field name="morning_weather" class="java.lang.String">
-		<fieldDescription><![CDATA[../morning_weather]]></fieldDescription>
+		<fieldDescription><![CDATA[morning_weather]]></fieldDescription>
 	</field>
 	<field name="afternoon_weather" class="java.lang.String">
-		<fieldDescription><![CDATA[../afternoon_weather]]></fieldDescription>
+		<fieldDescription><![CDATA[afternoon_weather]]></fieldDescription>
 	</field>
 	<field name="night_weather" class="java.lang.String">
-		<fieldDescription><![CDATA[../night_weather]]></fieldDescription>
+		<fieldDescription><![CDATA[night_weather]]></fieldDescription>
 	</field>
-	<field name="activity_description" class="java.lang.String">
-		<fieldDescription><![CDATA[description]]></fieldDescription>
+	<field name="constructor_activity" class="java.lang.String">
+		<fieldDescription><![CDATA[constructor_activity]]></fieldDescription>
+	</field>
+	<field name="workers" class="java.lang.String">
+		<fieldDescription><![CDATA[workers]]></fieldDescription>
+	</field>
+	<field name="equipments" class="java.lang.String">
+		<fieldDescription><![CDATA[equipments]]></fieldDescription>
 	</field>
 	<title>
-		<band height="249" splitType="Stretch">
+		<band height="181" splitType="Stretch">
 			<staticText>
 				<reportElement x="-1" y="110" width="51" height="15" uuid="33274f5d-5b7e-4be2-a2ff-65d452a618ed"/>
 				<textElement markup="none"/>
@@ -108,7 +114,7 @@
 			</staticText>
 			<staticText>
 				<reportElement x="34" y="25" width="205" height="15" uuid="c226e44d-3bb5-4145-b0b3-903bf1d79fde"/>
-				<text><![CDATA[]]></text>
+				<text><![CDATA[empreendimento xxxxx]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="34" y="40" width="205" height="15" uuid="b96f7183-44f8-43ad-ba60-43d8fbf50b6e"/>
@@ -184,28 +190,19 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{created_date}]]></textFieldExpression>
 			</textField>
-			<subreport>
-				<reportElement key="" x="0" y="180" width="270" height="60" isPrintInFirstWholeBand="true" uuid="1fde4632-8cf2-4479-a03e-794247c88787"/>
-				<subreportParameter name="XML_DATA_DOCUMENT">
-					<subreportParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["worker-subreport.jrxml"]]></subreportExpression>
-			</subreport>
-			<subreport>
-				<reportElement x="280" y="180" width="271" height="60" uuid="c849f3e5-e88c-4b4d-b5c5-3759d95b6df3"/>
-				<subreportParameter name="XML_DATA_DOCUMENT">
-					<subreportParameterExpression><![CDATA[$P{XML_DATA_DOCUMENT}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["equipment-subreport.jrxml"]]></subreportExpression>
-			</subreport>
+			<line>
+				<reportElement x="1" y="175" width="556" height="1" uuid="3bd8c8b2-6c4d-4111-8992-75dbbc6b713a">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
 		</band>
 	</title>
-	<columnHeader>
-		<band height="32">
+	<detail>
+		<band height="166">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<staticText>
-				<reportElement positionType="Float" x="2" y="5" width="230" height="25" uuid="adc597e6-8592-4577-911b-c6c1b6036e7d">
+				<reportElement key="" positionType="Float" x="18" y="80" width="255" height="25" uuid="adc597e6-8592-4577-911b-c6c1b6036e7d">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -214,20 +211,46 @@
 				</textElement>
 				<text><![CDATA[Atividades da Construtora]]></text>
 			</staticText>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="41">
-			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
-			<textField>
-				<reportElement x="2" y="6" width="553" height="24" uuid="d98831c7-ac8b-4f66-b307-96e8acb65995"/>
-				<textFieldExpression><![CDATA[$F{activity_description}]]></textFieldExpression>
+			<staticText>
+				<reportElement positionType="Float" x="18" y="10" width="256" height="25" uuid="65740f6e-33d7-42c5-8780-0bdce23c7d70">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equipe]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement key="" x="18" y="38" width="256" height="24" isRemoveLineWhenBlank="true" uuid="3777d26c-1d8e-4e5b-9950-eaea9cbd2a4f"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{workers}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="308" y="10" width="243" height="25" uuid="01c3e31b-5e69-407d-ba8c-d61970805847">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equipamento]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="308" y="38" width="243" height="24" uuid="4bd4b720-4d4b-4a76-8630-76b29cce7ad7"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{equipments}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="4" y="108" width="547" height="24" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="61890ebc-1db8-4611-8c43-3521c3ee045b"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA[$F{constructor_activity}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="0" y="30" width="556" height="5" uuid="da188213-33e6-4a44-8d96-fc16fe673d3a"/>
-				<graphicElement>
-					<pen lineStyle="Dashed"/>
-				</graphicElement>
+				<reportElement positionType="Float" x="0" y="69" width="556" height="1" uuid="2793b68c-05b6-4871-b1d5-eb862b164a85">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 			</line>
 		</band>
 	</detail>
@@ -250,7 +273,7 @@
 		</band>
 	</pageFooter>
 	<lastPageFooter>
-		<band height="30">
+		<band height="42">
 			<textField pattern="MMM d, yyyy h:mm:ss a">
 				<reportElement style="Column header" x="77" y="5" width="158" height="13" forecolor="#030202" uuid="32bf6db4-44f6-444e-9798-54a6fd191ee3"/>
 				<textElement verticalAlignment="Middle">
@@ -278,6 +301,14 @@
 					<font size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMM d, yyyy h:mm:ss a" hyperlinkType="Reference" hyperlinkTarget="Blank">
+				<reportElement style="Column header" x="6" y="24" width="158" height="13" forecolor="#030202" uuid="8954ef9e-cd39-4dc5-984b-e68bd50f4d30"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["www.pmosa.com.br"]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA["http://www.pmosa.com.br/"]]></hyperlinkReferenceExpression>
 			</textField>
 		</band>
 	</lastPageFooter>
