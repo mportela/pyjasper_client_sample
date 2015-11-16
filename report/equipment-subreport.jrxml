@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.1.final using JasperReports Library version 6.0.0  -->
+<!-- 2015-11-16T11:54:26 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="equipments-subreport" pageWidth="268" pageHeight="842" columnWidth="268" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="55a35476-d409-4c72-a6dc-de3dca516280">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="xml_local"/>
+	<queryString language="xPath">
+		<![CDATA[/log/data/equipment]]>
+	</queryString>
+	<field name="description_1" class="java.lang.String">
+		<fieldDescription><![CDATA[description]]></fieldDescription>
+	</field>
+	<field name="quantity_1" class="java.lang.String">
+		<fieldDescription><![CDATA[quantity]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="3" width="268" height="31" uuid="bae4b89b-9d6f-4220-96d9-ffb544f3f8f9">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equipamento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="2" width="268" height="23" forecolor="#F6F7D7" backcolor="#F2EED0" uuid="8f1d700b-643f-45bc-bfc9-ce33d6c45d30">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[($V{REPORT_COUNT}.intValue() % 2) == 0]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0" lineColor="#FFFFFF"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="4" width="190" height="20" uuid="c557c806-d7ec-4438-8a0c-a77884d7e6d7"/>
+				<textFieldExpression><![CDATA[$F{description_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="4" width="78" height="20" uuid="9a78f047-db4e-44f7-bcdf-c03d0f9829f6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{quantity_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
